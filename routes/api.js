@@ -12,7 +12,7 @@ const ACCESS_KEY = process.env.ACCESS_KEY;
 router.get('/top5/:city', async (req, res, next) => {
   // This will return all the data, exposing only the id and action field to the client
   const location = req.params.city || 'Alpharetta';
-  const searchQuery = `/search?location=${location}&term="ice cream"&sort_by=rating&limit=5`;
+  const searchQuery = `/search?location=${location}&term="ice cream"&limit=5`;
   try {
     const response = await fetch(YELP_FUSION_API + searchQuery, {
         headers:{

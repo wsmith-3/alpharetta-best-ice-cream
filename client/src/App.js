@@ -42,21 +42,19 @@ function App() {
     })
     .catch((err) => console.log(err))
   }
-  console.log('Here is the top 5 ice cream shops: ', iceCreamShops);
-  console.log('Did we get a random photo: ', randomPhoto);
-  console.log('here is the reviews : ', shopReview)
   return (
     <div className="App">
       <header className="App-header">
         <img src={randomPhoto && randomPhoto.urls.small} className="App-logo" alt="logo" />
-        <p>
+        <h1 className='title is-3 pt-3'>
           A list of {city}'s best ice cream 
-        </p>
+        </h1>
       </header>
       {iceCreamShops.length && iceCreamShops.map(shop => {
         return (
           <div className='box' key={shop.id}>
-            <span className='title is-4'>{shop.name}</span>
+            <div className='title is-4 mb-1'>{shop.name}</div>
+            <div className='subtitle is-5 is-inline'><strong>Address : </strong>{shop.location.address1} {shop.location.address2}, {shop.location.city}</div>
             <div className='is-pulled-right'>
                 <button className='button is-small ' onClick={() => getReview(shop.id)}>Review</button>
             </div>
